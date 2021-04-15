@@ -74,6 +74,31 @@
   </entry>
   
   <entry>
+    <title>本地电脑如何变成服务器？</title>
+    <link href="http://example.com/2019/05/22/%E6%9C%AC%E5%9C%B0%E7%94%B5%E8%84%91%E5%A6%82%E4%BD%95%E5%8F%98%E6%88%90%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+    <id>http://example.com/2019/05/22/%E6%9C%AC%E5%9C%B0%E7%94%B5%E8%84%91%E5%A6%82%E4%BD%95%E5%8F%98%E6%88%90%E6%9C%8D%E5%8A%A1%E5%99%A8/</id>
+    <published>2019-05-21T19:03:25.000Z</published>
+    <updated>2021-04-15T10:54:12.627Z</updated>
+    
+    <content type="html"><![CDATA[<p>&emsp;&emsp;本人住在深圳的某城中村，刚来深圳用着门口贴着“网络贩子”的网，开始觉得自己拉光纤成本太高。开始用了80块钱8M的网，下行速度600KB/s左右，上行速度只有10KB/s，传个10M的文件要老半天，手机玩游戏根本不敢连WIFI，室友打一个网络电话（通常就是2小时左右）我就视频啥的都看不了，只能等他打完才能看。<span id="more"></span>一年后，受不了，让“老板”给我免费加到10M，下行速度有所提升，能达到1MB/s，上行速度也提了一点点。最近那网络老是故障，实在受不了，决定拉个宽带！开始看了下移动的套餐，话费达到69元每个月，可以免费装50M的宽带，然后去营业厅问，让我打10086，打电话过去查了一下说这边跟铁通合作了，只能拉铁通的网，打了好几次铁通的客服都打不通，然后又跟移动的交涉了几次，一个月过去了，未果，只能放弃；然后就试着帮联通的，也是陆陆续续，半个月后被告知我住的地方办不了。哎！！想着家里偏远农村一天都拉了一个月49元200M的光纤，深圳为啥办个网那么难。最后只能选择比较贵点的电信了，微信里电信的客服服务相当的好，1天就上门来装宽带。自己选着了一个1399元/年的200M套餐，然后拉了一个隔壁的“老王”一起分摊一下，一个月下来我们宿舍就60元左右，真是爽歪歪呀！！！</p><p><img src="http://my-images-space.oss-cn-shenzhen.aliyuncs.com/computer2server/telecom_broadband_package.jpg" alt="电信宽带套餐"><br><br></p><div algin=center>    <img src="https://raw.githubusercontent.com/LuoJimmy/picture-server/master/computer2server/speedtest.png" /></div><br>> 要千兆的路由器和千兆的网卡才能达到这个速度！<br>&emsp;&emsp;OK！不吐槽了！下面进入正题。<h2>一、确认自己WAN口IP和上网IP一致且是公网</h2><div align=center>    <figure>        <img src="https://raw.githubusercontent.com/LuoJimmy/picture-server/master/computer2server/WAN_IP.jpg" />        <figcaption align=center>WAN口IP</figcaption>    </figure></div><br/><div align=center>    <figure>        <img src="https://raw.githubusercontent.com/LuoJimmy/picture-server/master/computer2server/IP.jpg" />        <figcaption align=center>上网IP</figcaption>    </figure></div><br><div align=center>    <figure>        <img src="https://raw.githubusercontent.com/LuoJimmy/picture-server/master/computer2server/ping_web.jpg" />        <figcaption align=center>ping测试是否为公网</figcaption>    </figure></div><br>> 电信的220开头的不是公网，138开头的为公网。<h2>二、端口映射</h2>&emsp;&emsp;我用的是TP-LINK路由器，其他路由器类似！<div align=center>    <img src="https://raw.githubusercontent.com/LuoJimmy/picture-server/master/computer2server/router_app.jpg" /></div>&emsp;&emsp;1. 在配置前，先设置IP和MAC绑定，不然每次重启电脑，IP就可能会变；<br>&emsp;&emsp;2. 虚拟服务器设置；<div align=center>    <img src="https://raw.githubusercontent.com/LuoJimmy/picture-server/master/computer2server/set_server.jpg" /></div>&emsp;&emsp;3. 由于是动态IP，最好绑定一个域名，不然每次光猫重启IP都会变。进去DDNS设置，TP-LINK注册一个ID可申请一个域名，或者用花生壳的也可以！<br><br>> 1) 一般网络运营商为了避免被黑客攻击和扫描，都是采用动态IP。如果想要静态IP可与运营商联系或者去购买一个IP盒子；    1) 电信的一些常用的端口如80，8080被屏蔽掉了。<h2>栗子：搭建一个网站服务</h2>&emsp;&emsp;我这里就安装一个WampServer(windows+apache+mysql+php)，其他想用phpstudy、IIS、虚拟机和docker等其他服务的，请另外选择！<br>&emsp;&emsp;1. 配置刚才映射的端口并配置apache外网可以访问；<div align=center>    <img src="https://raw.githubusercontent.com/LuoJimmy/picture-server/master/computer2server/apache_config.png" /></div>&emsp;&emsp;2. 允许应用通过防火墙通信，或者关闭防火墙；<div align=center>    <img src="https://raw.githubusercontent.com/LuoJimmy/picture-server/master/computer2server/firewall.jpg" /></div>&emsp;&emsp;3. 进行外网测试。 <div align=center>    <img src="https://raw.githubusercontent.com/LuoJimmy/picture-server/master/computer2server/web_access_result.jpg" /></div><hr>&emsp;&emsp;都这里就结束了。以后可以开启各种玩法了。如网站、FTP、监控、云盘、测试、学习等等。]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;&amp;emsp;&amp;emsp;本人住在深圳的某城中村，刚来深圳用着门口贴着“网络贩子”的网，开始觉得自己拉光纤成本太高。开始用了80块钱8M的网，下行速度600KB/s左右，上行速度只有10KB/s，传个10M的文件要老半天，手机玩游戏根本不敢连WIFI，室友打一个网络电话（通常就是2小时左右）我就视频啥的都看不了，只能等他打完才能看。</summary>
+    
+    
+    
+    <category term="教程" scheme="http://example.com/categories/%E6%95%99%E7%A8%8B/"/>
+    
+    <category term="服务器" scheme="http://example.com/categories/%E6%95%99%E7%A8%8B/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+    
+    
+    <category term="服务器" scheme="http://example.com/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+    
+    <category term="教程" scheme="http://example.com/tags/%E6%95%99%E7%A8%8B/"/>
+    
+  </entry>
+  
+  <entry>
     <title>《极客与团队》书摘</title>
     <link href="http://example.com/2019/05/19/Team%20Geek%20Review/"/>
     <id>http://example.com/2019/05/19/Team%20Geek%20Review/</id>
