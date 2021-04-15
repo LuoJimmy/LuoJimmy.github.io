@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.jpg">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.jpg">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="前言、极简通信史：从1G到5G通信，到底经历了啥？ 革命性变化：  1G的诞生，模拟电路  从1G到2G，模拟电路-&gt;数字电路，由于采用了专用集成电路，单位能量传输和处理信息的能力提高了两个能量级">
+<meta property="og:type" content="article">
+<meta property="og:title" content="《吴军讲5G》摘要">
+<meta property="og:url" content="http://example.com/archives/6a15.html">
+<meta property="og:site_name" content="JimmyLuo&#39;s Blog">
+<meta property="og:description" content="前言、极简通信史：从1G到5G通信，到底经历了啥？ 革命性变化：  1G的诞生，模拟电路  从1G到2G，模拟电路-&gt;数字电路，由于采用了专用集成电路，单位能量传输和处理信息的能力提高了两个能量级">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://my-images-space.oss-cn-shenzhen.aliyuncs.com/5G_industry.jpeg">
+<meta property="og:image" content="http://my-images-space.oss-cn-shenzhen.aliyuncs.com/2019_NR_schedule_late_drop_pic3.jpg">
+<meta property="article:published_time" content="2019-10-19T16:00:00.000Z">
+<meta property="article:modified_time" content="2021-04-15T13:14:20.280Z">
+<meta property="article:author" content="Jimmy Luo">
+<meta property="article:tag" content="摘要">
+<meta property="article:tag" content="5G">
+<meta property="article:tag" content="前沿科技">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://my-images-space.oss-cn-shenzhen.aliyuncs.com/5G_industry.jpeg">
+
+<link rel="canonical" href="http://example.com/archives/6a15.html">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>《吴军讲5G》摘要 | JimmyLuo's Blog</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=268856276"></script>
+    <script>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', '268856276');
+      }
+    </script>
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="JimmyLuo's Blog" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">JimmyLuo's Blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/archives/6a15.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Jimmy Luo">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="JimmyLuo's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          《吴军讲5G》摘要
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-10-20 00:00:00" itemprop="dateCreated datePublished" datetime="2019-10-20T00:00:00+08:00">2019-10-20</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-04-15 21:14:20" itemprop="dateModified" datetime="2021-04-15T21:14:20+08:00">2021-04-15</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E4%B9%A6%E7%B1%8D/" itemprop="url" rel="index"><span itemprop="name">书籍</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E4%B9%A6%E7%B1%8D/%E5%89%8D%E6%B2%BF%E7%A7%91%E6%8A%80/" itemprop="url" rel="index"><span itemprop="name">前沿科技</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/archives/6a15.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/archives/6a15.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+              <span>4.1k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+              <span>4 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="前言、极简通信史：从1G到5G通信，到底经历了啥？"><a href="#前言、极简通信史：从1G到5G通信，到底经历了啥？" class="headerlink" title="前言、极简通信史：从1G到5G通信，到底经历了啥？"></a>前言、极简通信史：从1G到5G通信，到底经历了啥？</h2><ul>
+<li><p>革命性变化：</p>
+<ul>
+<li><p>1G的诞生，模拟电路</p>
+</li>
+<li><p>从1G到2G，模拟电路-&gt;数字电路，由于采用了专用集成电路，单位能量传输和处理信息的能力提高了两个能量级</p>
+<span id="more"></span></li>
+<li><p>从2G到3G，实现了从语音通信到数据通信的飞跃。电话功能退居2线，上网成为主导。</p>
+</li>
+<li><p>从3G到4G，实现了移动通信网络和传统电信网络的融合，将云计算等互联网技术运用于移动通信，使得不同区域之间的流量能够动态平衡，大大地提高了带宽的使用率</p>
+</li>
+</ul>
+</li>
+<li><p>四个要点：</p>
+<ul>
+<li><p>单位能量的信息传输率越来越高</p>
+</li>
+<li><p>网络不断融合</p>
+</li>
+<li><p>设备的辐射越来越小（香农定律，5G基站距离小200-300m，功率数量级降低）</p>
+</li>
+<li><p>每一代都有新的主导型公司出现：1G是摩托罗拉，2G是诺基亚，3G、4G是苹果、谷歌和高通，5G是华为</p>
+<blockquote>
+<ul>
+<li><p>2G，100的字要分成两条发送；3G以图片和小视频为主，QQ和语音；4G直播、大视频。手机上集成了越来越多的功能，涵盖人类的衣食住行各个方面，颠覆了很多传统行业，很多方面也在变革，如家庭电话、民用相机、MP3音乐播放器，掌上游戏机、交通卡、钱包等。</p>
+</li>
+<li><p>香农公式：C = W log2(1+S/N) b/s</p>
+<p>C：信道的极限信息传输速率</p>
+<p>W：为信道的带宽（以 Hz 为单位）<br>S：为信道内所传信号的平均功率<br>N：为信道内部的高斯噪声功率<br>信道的带宽或信道中的信噪比越大，则信息的极限传输速率就越高。 只要信息传输速率低于信道的极限信息传输速率，就一定可以找到某种办法来实现无差错的传输。 实际信道上能够达到的信息传输速率要比香农的极限传输速率低不少。</p>
+</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="1、谣言与真相：5G是不是伪需求？"><a href="#1、谣言与真相：5G是不是伪需求？" class="headerlink" title="1、谣言与真相：5G是不是伪需求？"></a>1、谣言与真相：5G是不是伪需求？</h2><ol>
+<li>5G不是伪需求。虽然很多人在炒5G的概念，但是他确实是技术和商业发展到今天的需要。判断一个技术是不是伪需求，需要看它是不是符合“更少的能量传递、处理和存储更多信息这个商业发展的轴心趋势”。（举了IBM的小沃森，技术创造市场）</li>
+<li>从历史的看，技术的成熟可以创造出原来想不到的市场。5G也是如此。</li>
+<li>判断一个技术爆发的时间点是否到来了，要看它的预先要求是否满足，以及潜在的市场是否足够大。（举了日本的KDDI公司3G运营的失败）</li>
+<li>很多东西，我们不仅要看不看好，还要看贵不贵，对于5G，它今后的单位流量费用不会像今天4G那么贵，虽然总的费用可能有所上涨。 </li>
+</ol>
+<h2 id="2、基因与演化：为什么谈5G必谈IoT？"><a href="#2、基因与演化：为什么谈5G必谈IoT？" class="headerlink" title="2、基因与演化：为什么谈5G必谈IoT？"></a>2、基因与演化：为什么谈5G必谈IoT？</h2><ol>
+<li>5G和IoT相辅相成，是一个整体。通信的人强调连接和通信技术，计算机的人强调上网设备的范围。（波粒二象性，通信：速度快，计算机：广泛性）</li>
+<li>目前的4G技术没有进一步升级的可能，因此5G势在必行。当然它发展的速度，受限于IoT的发展进程。</li>
+<li>网络的融合是通信和计算机发展的趋势，任何和这个趋势相关的努力都是顺势而行，任何单独搞一套的做法都是逆势而行，会被淘汰。</li>
+<li>5G会让很多技术落地，比如无人汽车、全息通讯等。</li>
+</ol>
+<h2 id="分工与合作：如何站在浪潮之巅"><a href="#分工与合作：如何站在浪潮之巅" class="headerlink" title="分工与合作：如何站在浪潮之巅"></a>分工与合作：如何站在浪潮之巅</h2><ol>
+<li><p>无论是第一代，还是第二代互联网，全世界形成了一个高度耦合的产业，在这个产业里有详细的分工。</p>
+</li>
+<li><p>控制产业的是把控操作系统和核心芯片的企业，接下来是设备制造商和软件开发商。</p>
+<blockquote>
+<p>第一代互联网winIntel，第二代互联网是arm+Android。苹果吃独食。为什么第一代的公司在第二代不适应：基因决定的（在一个商业环境优化得非常适应环境的公司基因，很难在另一个生态环境重新适应和发展）。机会：变革式的洗牌+市场规模。</p>
+</blockquote>
+</li>
+<li><p>每一代互联网，上述位置中的企业都会更换，这是由单位能量传输、存储和处理更多信息的要求决定的，也是由公司的基因决定的。在未来也是如此，为了适用IoT的发展，需要新的芯片技术和操作系统。</p>
+</li>
+<li><p>每一次这样大的变局，就给那么多人带来了机会。</p>
+</li>
+</ol>
+<h2 id="4、变革与挑战：谁是5G时代的大赢家？"><a href="#4、变革与挑战：谁是5G时代的大赢家？" class="headerlink" title="4、变革与挑战：谁是5G时代的大赢家？"></a>4、变革与挑战：谁是5G时代的大赢家？</h2><ol>
+<li>巨大规模的市场机会，关键在于网络的融合。互联网产业增值高，但是规模小，被几家大头公司掌控者；电信产业增值小，但是规模大。5G时代，传统互联网和移动互联网的融合，电信企业就能够靠计算机企业的技术力量提供新的增值服务了，当然，它们也就为计算机企业提供了一个更大的发展空间。类比软硬件融合，硬件企业产值高，但由于摩尔定律，价格不可能上涨，因此销售额没有增长，软件产业利润高，增长快，但是盘子小。软硬件融合举例：苹果、Google、亚马逊、小米。</li>
+<li>没有技术含量的简单产品没有机会，系统级的创新才有。最好一个系统是有难度的，因为系统的表现不等于部分之和，只有那些做到系统大于部分之和的企业，才能在系统这个层面赢得竞争力。</li>
+</ol>
+<h2 id="5、机会与骗局：如何判断新技术的可靠性？"><a href="#5、机会与骗局：如何判断新技术的可靠性？" class="headerlink" title="5、机会与骗局：如何判断新技术的可靠性？"></a>5、机会与骗局：如何判断新技术的可靠性？</h2><ol>
+<li><p>架构图。绿色是核心模块。更多的人可能是从应用入手。</p>
+<p><img src="http://my-images-space.oss-cn-shenzhen.aliyuncs.com/5G_industry.jpeg" alt="5G行业"></p>
+</li>
+</ol>
+<p>真实案例：</p>
+<p>1）使用IoT及早的发现猪瘟，给每只猪安装可穿戴设备，监控其体温和进食，一旦发现有猪瘟，将这一栏的猪全部处理掉；</p>
+<p>2）NBA的勇士队使用一种叫SportVU（它是数据采集的工具），识别每一位球员，跟踪人的踪迹，记录传球的配合的准确率，过人的效率和投篮的命中率等；另一种辅助工具MOCAP（大数据处理和智能决策工具），用来帮助制定的战术熟练的练好</p>
+<ol>
+<li><p>美国最大的移动通信运营商Version把5G的应用概括为八大模块：</p>
+<ul>
+<li>节能</li>
+<li>跟踪</li>
+<li>移动大数据</li>
+<li>IoT</li>
+<li>实时服务，eg: 车联网，汽车相互通信，实时作出优化的决定。远程手术</li>
+<li>商业系统升级，eg: 比如现在的收银机要么连线，要么需要连WI-FI，5G之后就可以完全利用移动互联网通信</li>
+<li>高速网络应用，eg: 多人连接家里的WI-FI玩游戏或者看电影会觉得卡；今天的VR发展不起来，主要障碍是网速</li>
+<li>高可靠性网络应用，eg: 5G覆盖性好，不太容易出现掉线的情况，加上加密技术，以及不再使用WI-FI或热点上网（比如使用星巴克等免费的WI-FI），安全性会提高。大额金融交易敢用。</li>
+</ul>
+</li>
+<li><p>如何判断是否商业操作，伪5G:</p>
+<ol>
+<li>任何一代移动通信的技术的进步，都会带来数量级（10倍）的改进，达不到就是假的。</li>
+<li>在5G的说明中夹带私货。如前段时间在美国别嘲笑的伪5G手机，用了5Ge的标识</li>
+<li>把实验测试当作商业效果来宣传。</li>
+<li>5G的三大特点：<ul>
+<li>宽带大、速度快</li>
+<li>还需要做到高可靠、低时延</li>
+<li>支撑海量并发设备</li>
+</ul>
+</li>
+</ol>
+</li>
+</ol>
+<h2 id="6、市场与博弈：世界各国如何布局5G？"><a href="#6、市场与博弈：世界各国如何布局5G？" class="headerlink" title="6、市场与博弈：世界各国如何布局5G？"></a>6、市场与博弈：世界各国如何布局5G？</h2><ol>
+<li><p>5G的15版本（3GPP-R15）标准两步走：第一步，非独立组网模式（NSA），即采用4G为核心网，4G为主，5G为辅，对应的标准3GPP-R15-NSA，于2018年底确定了；第二步，独立组网模式（SA），5G作为核心网，只有5G基站工作，对应的标准3GPP-R15-SA，于2019年6月确定。</p>
+<p><img src="http://my-images-space.oss-cn-shenzhen.aliyuncs.com/2019_NR_schedule_late_drop_pic3.jpg" alt="2019_NR_schedule"></p>
+</li>
+<li><p>5G的三大根本性原则：增强型移动宽带（eMBB）,超可靠低时延（uRLLC），海量机器类通信（mMTC）</p>
+</li>
+<li><p>邬贺铨院士估计，中国完成5G的建设，至少需要10年时间，投入1万亿以上。5G用户要达到移动通信的比列的85%，需要比4G时间长（中国花了6、7年）。5G有4万亿美元的市场</p>
+</li>
+<li><p>两个大阵营：华为（盟商：英特尔、诺基亚）提出5G方案是在6000兆赫，也就是在Wi-Fi之上，好处是技术简单，能较好的利用4G资源，绕过障碍物能力强，但是窄带宽，速度受限；另一个阵营高通（可能的盟商三星，高通虽然设计芯片，但是本生没有生产线，制造要依赖三星或者台积电），方案比较跃进，直接上到了28千兆赫，好处是和现在所有的无线通信都不冲突，宽带可以扩展的非常宽，但是技术复杂，传输距离短。邬贺铨认为中国5G未来还得使用28千兆赫（即所谓的毫米波）</p>
+</li>
+<li><p>目前全世界真正决定建设5G的电信强国只有中国、美国、韩国</p>
+</li>
+<li><p>目前中国5G取得了一些先机，华为的早起投入，中国较强的工程能力，中国的国力，以金钱换时间</p>
+</li>
+<li><p>大企业的优势：华为优势在于全面性，通信设备、基站建设、手机和芯片制造，还有标准上。高通，从来没有在移动通信中落伍，在半导体设计上的经验要比华为强。三星，3.5GHz的测试，象征意义</p>
+</li>
+<li><p>要与运行商结合，全世界用户超过5000万的运营商有24家。运营商比较保守，新品至少要在18个月后才接受，不太可能再诞生一个华为</p>
+</li>
+</ol>
+<h2 id="7、想象与现实：VR、AR"><a href="#7、想象与现实：VR、AR" class="headerlink" title="7、想象与现实：VR、AR"></a>7、想象与现实：VR、AR</h2><ol>
+<li>VR出现在实验室里，至今已经20年了，几年前Facebook收购了做VR眼镜的Oculus公司，热了几年，由于预先的技术没有达标，体验提别差，特别是头晕问题</li>
+<li>VR三大技术难题：① 信息传输的速度不够快，通常需要高清视频（1080P）的20倍，图像跟不上，5G能满足；② 处理器是否复原出图像，今天最高速的GPU能满足，但是耗电、成本高，对无线VR设备效果难以提升；③ 需要反馈，头脑和身体协调，好的VR需要和可穿戴式设备结合，那就能彻底解决头晕问题</li>
+<li>AR是将虚拟的场景叠加到现实的环境中，今天大部分AR都是骗人的把戏。现在AR可以全面实现信息的三维可视化，主要用于数字城市建设、商品展示、品牌营销、远程教育、旅游体验，文博展览、企业宣传和军事模拟等。</li>
+<li>3D全息成像，需要的数据量巨大，做一个高清电视分辨率的3D全息成像，一秒钟的数据量是450亿个像素，而电视大约只有1亿像素。5G让其成为可能。配合特殊的手套等穿戴式设备，反馈贴近真实</li>
+<li>5G让人与人直接物理连接的宽带增加，如果人们在未来想要增加独立性，而不是依附在某个社会组织中，还需要增加虚拟连接的宽带。</li>
+</ol>
+<h2 id="8、推演与预测：5G之后的通讯"><a href="#8、推演与预测：5G之后的通讯" class="headerlink" title="8、推演与预测：5G之后的通讯"></a>8、推演与预测：5G之后的通讯</h2><ol>
+<li>马斯克的星链计划，近地距离卫星的飞行高度大约是200公里，是4G手机与基站的100倍左右，距离远受阻碍，耗费无线电带宽，传输率高不了。在塔克拉玛干沙漠可能有用</li>
+<li>Google热气球，送入大气平流层，距离地面约20公里，风比较稳定，大气层不同的高度风速和风向是不同的，通过升降到特定高度，可以决定气球的位置。气球采用聚乙烯材料，从气候高12米，宽15米，太阳能供电。Google初衷，当时全世界还有2/3的地方没有被无线网络覆盖。Google放弃该计划的原因：① 气球难以控制，久了位置乱调整难；② 气球坏得很快，使用降落伞，降落位置控制不了，难以回收；③ 基站发射功率不够大，地面接收天线特别大，最高只能保证3G的速度；④ 全世界基站建设的速度远比想象的快，成本比搞这种气球低</li>
+<li>用更少的能量传递更多的信息，永远是来判断一种移动通信方案乃至新技术是否靠谱的标准</li>
+<li>你有你的计划，但世界另有计划</li>
+</ol>
+<h2 id="扩展阅读"><a href="#扩展阅读" class="headerlink" title="扩展阅读"></a>扩展阅读</h2><p><a target="_blank" rel="noopener" href="https://36kr.com/p/5216306?from=timeline&isappinstalled=0">中国5G势力最强18城排名出炉，六大维度还原真实潜力</a> </p>
+
+    </div>
+
+    
+    
+    
+      
+
+        <div class="reward-container">
+  <div></div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/wechatpay.jpeg" alt="Jimmy Luo 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div style="display: inline-block;">
+        <img src="/images/alipay.jpeg" alt="Jimmy Luo 支付宝">
+        <p>支付宝</p>
+      </div>
+
+  </div>
+</div>
+
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Jimmy Luo
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://example.com/archives/6a15.html" title="《吴军讲5G》摘要">http://example.com/archives/6a15.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+        
+
+  <div class="followme">
+    <p>欢迎关注我的其它发布渠道</p>
+
+    <div class="social-list">
+
+        <div class="social-item">
+          <a target="_blank" class="social-link" href="/atom.xml">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+
+            <span class="label">RSS</span>
+          </a>
+        </div>
+    </div>
+  </div>
+
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/%E6%91%98%E8%A6%81/" rel="tag"><i class="fa fa-tag"></i> 摘要</a>
+              <a href="/tags/5G/" rel="tag"><i class="fa fa-tag"></i> 5G</a>
+              <a href="/tags/%E5%89%8D%E6%B2%BF%E7%A7%91%E6%8A%80/" rel="tag"><i class="fa fa-tag"></i> 前沿科技</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/archives/7035.html" rel="prev" title="React小抄">
+      <i class="fa fa-chevron-left"></i> React小抄
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/archives/71de.html" rel="next" title="Vue小抄">
+      Vue小抄 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E8%A8%80%E3%80%81%E6%9E%81%E7%AE%80%E9%80%9A%E4%BF%A1%E5%8F%B2%EF%BC%9A%E4%BB%8E1G%E5%88%B05G%E9%80%9A%E4%BF%A1%EF%BC%8C%E5%88%B0%E5%BA%95%E7%BB%8F%E5%8E%86%E4%BA%86%E5%95%A5%EF%BC%9F"><span class="nav-text">前言、极简通信史：从1G到5G通信，到底经历了啥？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1%E3%80%81%E8%B0%A3%E8%A8%80%E4%B8%8E%E7%9C%9F%E7%9B%B8%EF%BC%9A5G%E6%98%AF%E4%B8%8D%E6%98%AF%E4%BC%AA%E9%9C%80%E6%B1%82%EF%BC%9F"><span class="nav-text">1、谣言与真相：5G是不是伪需求？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2%E3%80%81%E5%9F%BA%E5%9B%A0%E4%B8%8E%E6%BC%94%E5%8C%96%EF%BC%9A%E4%B8%BA%E4%BB%80%E4%B9%88%E8%B0%885G%E5%BF%85%E8%B0%88IoT%EF%BC%9F"><span class="nav-text">2、基因与演化：为什么谈5G必谈IoT？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%86%E5%B7%A5%E4%B8%8E%E5%90%88%E4%BD%9C%EF%BC%9A%E5%A6%82%E4%BD%95%E7%AB%99%E5%9C%A8%E6%B5%AA%E6%BD%AE%E4%B9%8B%E5%B7%85"><span class="nav-text">分工与合作：如何站在浪潮之巅</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4%E3%80%81%E5%8F%98%E9%9D%A9%E4%B8%8E%E6%8C%91%E6%88%98%EF%BC%9A%E8%B0%81%E6%98%AF5G%E6%97%B6%E4%BB%A3%E7%9A%84%E5%A4%A7%E8%B5%A2%E5%AE%B6%EF%BC%9F"><span class="nav-text">4、变革与挑战：谁是5G时代的大赢家？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5%E3%80%81%E6%9C%BA%E4%BC%9A%E4%B8%8E%E9%AA%97%E5%B1%80%EF%BC%9A%E5%A6%82%E4%BD%95%E5%88%A4%E6%96%AD%E6%96%B0%E6%8A%80%E6%9C%AF%E7%9A%84%E5%8F%AF%E9%9D%A0%E6%80%A7%EF%BC%9F"><span class="nav-text">5、机会与骗局：如何判断新技术的可靠性？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6%E3%80%81%E5%B8%82%E5%9C%BA%E4%B8%8E%E5%8D%9A%E5%BC%88%EF%BC%9A%E4%B8%96%E7%95%8C%E5%90%84%E5%9B%BD%E5%A6%82%E4%BD%95%E5%B8%83%E5%B1%805G%EF%BC%9F"><span class="nav-text">6、市场与博弈：世界各国如何布局5G？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7%E3%80%81%E6%83%B3%E8%B1%A1%E4%B8%8E%E7%8E%B0%E5%AE%9E%EF%BC%9AVR%E3%80%81AR"><span class="nav-text">7、想象与现实：VR、AR</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8%E3%80%81%E6%8E%A8%E6%BC%94%E4%B8%8E%E9%A2%84%E6%B5%8B%EF%BC%9A5G%E4%B9%8B%E5%90%8E%E7%9A%84%E9%80%9A%E8%AE%AF"><span class="nav-text">8、推演与预测：5G之后的通讯</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%89%A9%E5%B1%95%E9%98%85%E8%AF%BB"><span class="nav-text">扩展阅读</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Jimmy Luo"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">Jimmy Luo</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">10</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">17</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/LuoJimmy" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;LuoJimmy" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:942939937@qq.com" title="E-Mail → mailto:942939937@qq.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/atom.xml" title="RSS → &#x2F;atom.xml"><i class="fa fa-rss fa-fw"></i>RSS</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class=""></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">JimmyLuo's Blog</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="站点总字数">19k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">17 分钟</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : false,
+      appId      : 'H2nawX73Kc4ljVKwT5XAYjT9-gzGzoHsz',
+      appKey     : 'KOkvPv6S8QX0tAIXCLbbsNrw',
+      placeholder: "到此一游……",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : false,
+      lang       : 'zh-cn' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+  
+  
+    <script src="/js/cursor/fireworks.min.js"></script>
+  
+
+
+</body>
+</html>

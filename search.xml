@@ -2,7 +2,7 @@
 <search>
   <entry>
     <title>《吴军讲5G》摘要</title>
-    <url>/2019/10/20/5G_wujun/</url>
+    <url>/archives/6a15.html</url>
     <content><![CDATA[<h2 id="前言、极简通信史：从1G到5G通信，到底经历了啥？"><a href="#前言、极简通信史：从1G到5G通信，到底经历了啥？" class="headerlink" title="前言、极简通信史：从1G到5G通信，到底经历了啥？"></a>前言、极简通信史：从1G到5G通信，到底经历了啥？</h2><ul>
 <li><p>革命性变化：</p>
 <ul>
@@ -149,7 +149,7 @@
   </entry>
   <entry>
     <title>《极客与团队》书摘</title>
-    <url>/2019/05/19/Team%20Geek%20Review/</url>
+    <url>/archives/cbaa.html</url>
     <content><![CDATA[<blockquote>
 <p>本书是专门写给程序员看的团队管理书籍。比起其他管理书籍，这本书比较薄，才170多页。我没看此书此前，在自己项目管理中或多或少用了里面的一些理念，这本书很好的把精华写出来了。本书其实围绕如何维护一个健康有效率的社区，很多经验可以借鉴一下。</p>
 </blockquote>
@@ -411,8 +411,114 @@
       </tags>
   </entry>
   <entry>
-    <title>Vue知识地图</title>
-    <url>/2019/11/07/learn%20vue/</url>
+    <title>React小抄</title>
+    <url>/archives/7035.html</url>
+    <content><![CDATA[<ul>
+<li><p><strong>出现的根源</strong>：</p>
+<ul>
+<li>传统UI操作关注太多细节</li>
+<li>应用程序状态分散在各处，难以追踪和维护</li>
+</ul>
+</li>
+<li><p>React: 始终整体“刷新”页面，无需关注细节</p>
+<span id="more"></span></li>
+<li><p>Flux架构：单向数据流</p>
+<p><img src="http://my-images-space.oss-cn-shenzhen.aliyuncs.com/20200602172026.png"></p>
+</li>
+<li><p><strong>component</strong></p>
+</li>
+<li><p><strong>render</strong></p>
+</li>
+<li><p><strong>jsx</strong>：直接在JavaScript代码中直接写HTML标记。本质：动态创建组件的语法糖</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">const name &#x3D; &quot;Jimmy Luo&quot;;</span><br><span class="line">const element &#x3D; &lt;h1&gt;Hello, &#123;name&#125;&lt;&#x2F;h1&gt;;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 被react解析</span><br><span class="line">const name &#x3D; &quot;Jimmy Luo&quot;;</span><br><span class="line">const element &#x3D; React.createElement(</span><br><span class="line">  &#39;h1&#39;,</span><br><span class="line">  null,</span><br><span class="line">  &#39;Hello, &#39;,</span><br><span class="line">  name</span><br><span class="line">)</span><br></pre></td></tr></table></figure></li>
+<li><p><strong>props</strong></p>
+</li>
+<li><p><strong>state</strong></p>
+</li>
+<li><p><strong>function component</strong></p>
+</li>
+<li><p><strong>immutability</strong></p>
+</li>
+<li><p><strong>React elements</strong>: React elements are first-class JavaScript objects; we can pass them around in our applications. To render multiple items in React, we can use an array of React elements.</p>
+</li>
+<li><p><strong>unique “key” prop</strong>: Keys tell React about the identity of each component which allows React to maintain state between re-renders. If a component’s key changes, the component will be destroyed and re-created with a new state</p>
+</li>
+<li><p><strong>Component Lifecycle</strong>: mounting(componentDidMount())-&gt;updating(componentDidUpdate())-&gt;unmouting(componentWillUnmount())</p>
+<p><img src="https://my-images-space.oss-cn-shenzhen.aliyuncs.com/20200602181600.png"></p>
+<ul>
+<li>constructor<ol>
+<li>用于初始化内部状态，很少使用</li>
+<li>唯一可以直接修改state的地方</li>
+</ol>
+</li>
+<li>getDerivedStateFromProps<ol>
+<li>当state需要从props初始化时使用</li>
+<li>尽量不要使用：维护两者状态一致性增加复杂度</li>
+<li>每次render都会调用</li>
+<li>典型场景：表单控件获取默认值</li>
+</ol>
+</li>
+<li>componentDidMount<ol>
+<li>UI渲染完成后调用</li>
+<li>只执行一次</li>
+<li>典型场景：获取外部资源</li>
+</ol>
+</li>
+<li>componnetWillUnmount<ol>
+<li>组件移除时被调用</li>
+<li>经典场景：资源释放</li>
+</ol>
+</li>
+<li>getSnapshotBeforeUpdate<ol>
+<li>在页面render之前调用，state已更新</li>
+<li>典型场景：获取render之前的DOM状态</li>
+</ol>
+</li>
+<li>componentDidUpdate<ol>
+<li>每次UI更新时被调用</li>
+<li>典型场景：页面需要根据props变化重新获取数据</li>
+</ol>
+</li>
+<li>shouldComponentUpdate<ol>
+<li>决定Virtual DOM是否重绘</li>
+<li>一般可以有PureComponent自动实现</li>
+<li>典型场景：性能优化</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p><strong>Controlled component</strong></p>
+</li>
+</ul>
+<h2 id="dva"><a href="#dva" class="headerlink" title="dva"></a>dva</h2><ul>
+<li>dva = React-router + Redux + Redux-saga</li>
+<li><strong>Action</strong>: 一个对象，描述事件。type, payload</li>
+<li><strong>connect</strong>： 一个函数，绑定State到View</li>
+<li><strong>dispatch</strong>: 一个函数，绑定Action到State</li>
+<li><strong>Model</strong>: 一个对象，所有的逻辑都定义在它上面。namespace, state, reducers, effects, subscriptions</li>
+<li><strong>reducer</strong>：一个函数，接受state和action，返回老的或者新的state。Action 处理器，用来处理同步操作</li>
+<li><strong>effect</strong>: 一个函数，Action处理器，用来处理异步动作，基于Redux-saga实现。action, {call（调用异步逻辑）, put（出发action）, select（从state获取数据）}</li>
+<li><strong>Subscription</strong>: 用于订阅一个数据源，然后根据需要 dispatch 相应的 action</li>
+<li><strong>Router</strong>: Injected Props: location, params, children</li>
+</ul>
+<h2 id="rerender的真正条件"><a href="#rerender的真正条件" class="headerlink" title="rerender的真正条件"></a>rerender的真正条件</h2><ol>
+<li>当前组件的State中的属性改变时且当前组件的shouldcomponentupdate返回true，那么当前组件会rerender</li>
+<li>组件的props中的任一属性的值有变化(即使这个任一属性的值是对象，变化的仅仅是该对象中的某属性的值，此刻也算props发生了变化)且当前组件的shouldcomponentupdate return true时且当期组件所有父级以上组件的shouldcomponentupdate return true，当前组件才会re-render</li>
+<li>当前组件的shouldcomponentupdate即使返回false，当前组件里子组件若满足1中的条件，这个子组件依然会重新渲染</li>
+</ol>
+]]></content>
+      <categories>
+        <category>前端</category>
+        <category>react</category>
+      </categories>
+      <tags>
+        <tag>react</tag>
+        <tag>知识点</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Vue小抄</title>
+    <url>/archives/71de.html</url>
     <content><![CDATA[<ol>
 <li><p><strong>声明式渲染</strong></p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> app5 = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  el: <span class="string">&#x27;#app-5&#x27;</span>,</span><br><span class="line">  data: &#123;</span><br><span class="line">    message: <span class="string">&#x27;Hello Vue.js!&#x27;</span></span><br><span class="line">  &#125;,</span><br><span class="line">  methods: &#123;</span><br><span class="line">    reverseMessage: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="built_in">this</span>.message = <span class="built_in">this</span>.message.split(<span class="string">&#x27;&#x27;</span>).reverse().join(<span class="string">&#x27;&#x27;</span>)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
@@ -586,12 +692,109 @@
         <category>vue</category>
       </categories>
       <tags>
+        <tag>知识点</tag>
         <tag>vue</tag>
       </tags>
   </entry>
   <entry>
+    <title>nvm use exit status 1</title>
+    <url>/archives/a434.html</url>
+    <content><![CDATA[<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ nvm use 7.2.0</span><br><span class="line"><span class="built_in">exit</span> status 1: <span class="string">&#x27;D:\My&#x27;</span> ▒▒▒▒▒ڲ▒▒▒▒ⲿ▒▒▒Ҳ▒▒▒ǿ▒▒▒▒еĳ▒▒▒</span><br><span class="line">▒▒▒▒▒▒▒▒▒ļ▒▒▒</span><br></pre></td></tr></table></figure>
+<p>nvm安装的时候，路径不要中文和空格</p>
+<span id="more"></span>
+]]></content>
+      <categories>
+        <category>node</category>
+        <category>环境</category>
+      </categories>
+      <tags>
+        <tag>nvm</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>primeNG的p-dropdown的选中值未初始化</title>
+    <url>/archives/4775.html</url>
+    <content><![CDATA[<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p-dropdown</span> <span class="attr">name</span>=<span class="string">&quot;adjustflagId&quot;</span> <span class="attr">class</span>=<span class="string">&quot;dp-position&quot;</span> [<span class="attr">options</span>]=<span class="string">&quot;codeTable.adjustAccountFlag&quot;</span></span></span><br><span class="line"><span class="tag">    [(<span class="attr">ngModel</span>)]=<span class="string">&quot;editObj.adjustflagId&quot;</span> [<span class="attr">style</span>]=<span class="string">&quot;&#123;&#x27;width&#x27;: &#x27;124px&#x27;&#125;&quot;</span> <span class="attr">required</span>&gt;</span><span class="tag">&lt;/<span class="name">p-dropdown</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p-dropdown</span> <span class="attr">name</span>=<span class="string">&quot;adjustflagId&quot;</span> <span class="attr">class</span>=<span class="string">&quot;dp-position&quot;</span> [<span class="attr">options</span>]=<span class="string">&quot;codeTable.nameArr&quot;</span></span></span><br><span class="line"><span class="tag">    [(<span class="attr">ngModel</span>)]=<span class="string">&quot;editObj.name&quot;</span> [<span class="attr">style</span>]=<span class="string">&quot;&#123;&#x27;width&#x27;: &#x27;124px&#x27;&#125;&quot;</span> <span class="attr">required</span>&gt;</span><span class="tag">&lt;/<span class="name">p-dropdown</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>代码复制的，name属性相同所致。</p>
+<span id="more"></span>]]></content>
+      <categories>
+        <category>前端</category>
+        <category>Angular</category>
+        <category>primeNG</category>
+      </categories>
+      <tags>
+        <tag>angular</tag>
+        <tag>primeNG</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>window gitbash如何修改可恶的蓝色字体</title>
+    <url>/archives/b41b.html</url>
+    <content><![CDATA[<p><strong>1、问题</strong><br><img src="http://my-images-space.oss-cn-shenzhen.aliyuncs.com/gitbash/1044792-20181220171435949-1244386526.png"><br>    这完全看不清啊！！</p>
+<span id="more"></span>
+<p><strong>2、环境</strong><br>　　git version 2.19.0<br><strong>3、解决</strong><br>　　1）编辑/etc/bash.bashrc<br><img src="http://my-images-space.oss-cn-shenzhen.aliyuncs.com/gitbash/1044792-20181220171819672-575950677.png"></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Uncomment to use the terminal colours set in DIR_COLORS</span></span><br><span class="line"><span class="built_in">eval</span> <span class="string">&quot;<span class="subst">$(dircolors -b /etc/DIR_COLORS)</span>&quot;</span></span><br></pre></td></tr></table></figure>
+<p>　　2）编辑/etc/DIR_COLORS文件<br><img src="http://my-images-space.oss-cn-shenzhen.aliyuncs.com/gitbash/1044792-20181220172417893-2099021541.png"><br>    想改成其他颜色，请参看上面的数字对应的颜色说明<br><strong>4、效果</strong><br><img src="http://my-images-space.oss-cn-shenzhen.aliyuncs.com/gitbash/1044792-20181220172709215-1092394423.png"></p>
+<p>OVER!!</p>
+]]></content>
+      <categories>
+        <category>windows</category>
+        <category>环境</category>
+      </categories>
+      <tags>
+        <tag>windows</tag>
+        <tag>gitbash</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>基于webpack模块加载，ts里对系统对象prototype的扩展</title>
+    <url>/archives/a9bf.html</url>
+    <content><![CDATA[<p>用systemJS的时候，这样写是可以：</p>
+<figure class="highlight ts"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="title">constructor</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">    <span class="comment">// 对Date的扩展，将 Date 转化为指定格式的String</span></span><br><span class="line">    <span class="comment">// 月(M)、日(d)、小时(h)、分(m)、秒(s)、季度(q) 可以用 1-2 个占位符，</span></span><br><span class="line">    <span class="comment">// 年(y)可以用 1-4 个占位符，毫秒(S)只能用 1 个占位符(是 1-3 位的数字)</span></span><br><span class="line">    <span class="comment">// 例子：</span></span><br><span class="line">    <span class="comment">// (new Date()).format(&quot;yyyy-MM-dd hh:mm:ss.S&quot;) ==&gt; 2006-07-02 08:09:04.423</span></span><br><span class="line">    <span class="comment">// (new Date()).format(&quot;yyyy-M-d h:m:s.S&quot;)      ==&gt; 2006-7-2 8:9:4.18</span></span><br><span class="line">    <span class="built_in">Date</span>.prototype.format = <span class="function"><span class="keyword">function</span> (<span class="params">fmt</span>) </span>&#123;</span><br><span class="line">        ……</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<span id="more"></span>
+<p>但是换成webpack后，这样就报错了，识别不了，查了一些资料，换成下面的就可以了。</p>
+<figure class="highlight ts"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="title">constructor</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">　　　　　<span class="comment">// 对Date的扩展，将 Date 转化为指定格式的String</span></span><br><span class="line">    <span class="comment">// 月(M)、日(d)、小时(h)、分(m)、秒(s)、季度(q) 可以用 1-2 个占位符，</span></span><br><span class="line">    <span class="comment">// 年(y)可以用 1-4 个占位符，毫秒(S)只能用 1 个占位符(是 1-3 位的数字)</span></span><br><span class="line">    <span class="comment">// 例子：</span></span><br><span class="line">    <span class="comment">// (new Date()).format(&quot;yyyy-MM-dd hh:mm:ss.S&quot;) ==&gt; 2006-07-02 08:09:04.423</span></span><br><span class="line">    <span class="comment">// (new Date()).format(&quot;yyyy-M-d h:m:s.S&quot;)      ==&gt; 2006-7-2 8:9:4.18</span></span><br><span class="line">    <span class="built_in">Date</span>.prototype[<span class="string">&#x27;format&#x27;</span>] = <span class="function"><span class="keyword">function</span> (<span class="params">fmt</span>) </span>&#123; </span><br><span class="line">        ……</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>或者用这种方法<a href="http://stackoverflow.com/questions/12766117/how-does-prototype-extend-on-typescript">http://stackoverflow.com/questions/12766117/how-does-prototype-extend-on-typescript</a></p>
+<p>觉得这种方法不是很好，也没亲测</p>
+]]></content>
+      <categories>
+        <category>前端</category>
+        <category>工程化</category>
+        <category>webpack</category>
+      </categories>
+      <tags>
+        <tag>webpack</tag>
+        <tag>typescript</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>搭建CNPM私有库</title>
+    <url>/archives/a4e.html</url>
+    <content><![CDATA[<p>主要是玩玩CNPM私有库，理解里面的原理，有助于部署到服务器上和使用私用库来管理代码。</p>
+<h2 id="一、环境准备："><a href="#一、环境准备：" class="headerlink" title="一、环境准备："></a>一、环境准备：</h2><ul>
+<li>Windows操作系统；</li>
+<li>MySQL数据库（支持’mysql’, ‘sqlite’, ‘postgres’, ‘mariadb’。这里选择MySQL）</li>
+<li>CNMP私有库源码（<a href="https://github.com/cnpm/cnpmjs.org%EF%BC%89">https://github.com/cnpm/cnpmjs.org）</a><span id="more"></span></li>
+</ul>
+<h2 id="二、搭建系统"><a href="#二、搭建系统" class="headerlink" title="二、搭建系统"></a>二、搭建系统</h2><p>CNPM源码目录结构<br><img src="http://my-images-space.oss-cn-shenzhen.aliyuncs.com/setUpCNPM/1044792-20170626103208899-2014710923.png"></p>
+<ol>
+<li>将docs文件夹里面的db.sql部署到MySQL中：<br> 开启MySQL-&gt;打开GUI界面-&gt;创建一个新的数据库，导入db.sql<br><img src="http://my-images-space.oss-cn-shenzhen.aliyuncs.com/setUpCNPM/1044792-20170626103532539-479758475.png"></li>
+<li>设置CNMPJS配置参数，目录config/index.js<br> 1） 修改数据库源和注册地址（npm包下载安装的地址）；<br><img src="http://my-images-space.oss-cn-shenzhen.aliyuncs.com/setUpCNPM/1044792-20170825091905839-1239357311.png"><br> 2） 添加管理用户，用默认的也行。（也可以用命令行cnpm adduser进行添加，前提是要把cnmp的库源修改成本地私有库的，后面会讲到）<br><img src="http://my-images-space.oss-cn-shenzhen.aliyuncs.com/setUpCNPM/1044792-20170810090144324-1401326914.png"><br> 3） 安装npm依赖库，命令行，npm install<br> 4） 运行，node dispatch.js<br><img src="http://my-images-space.oss-cn-shenzhen.aliyuncs.com/setUpCNPM/1044792-20170626104846508-192988182.png"><br>浏览器效果<br><img src="http://my-images-space.oss-cn-shenzhen.aliyuncs.com/setUpCNPM/1044792-20170626105019508-565491505.png"><h2 id="三、使用"><a href="#三、使用" class="headerlink" title="三、使用"></a>三、使用</h2>1、切换cnpm源，<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cnpm config <span class="built_in">set</span> registry http://localhost:7001  //或者在当前电脑用户目录下配置.cnpmrc文件</span><br></pre></td></tr></table></figure>
+<img src="http://my-images-space.oss-cn-shenzhen.aliyuncs.com/setUpCNPM/1044792-20170626105612993-600716662.png"><br>　　该方法只对于该电脑用户有效，如果想对所有的用户有效，需在node的安装目录下配置<br><img src="http://my-images-space.oss-cn-shenzhen.aliyuncs.com/setUpCNPM/1044792-20170626110049227-2055105501.png"><br>2、 发布项目源码到私有库。<br> 先登录，cnpm login, 输入用户名、密码、邮箱（上面步骤设置的）；<br> 发布项目（项目的package.json，README.md配置好，以便查看使用），cnpm publish<br><img src="http://my-images-space.oss-cn-shenzhen.aliyuncs.com/setUpCNPM/1044792-20170810090144324-1401326914.png"><br>3、 发布后就可以在私有库查看了<br><img src="http://my-images-space.oss-cn-shenzhen.aliyuncs.com/setUpCNPM/1044792-20170626111041368-298724570.png"><br>如果你有啥问题或意见和想法，欢迎留言讨论。</li>
+</ol>
+]]></content>
+      <categories>
+        <category>前端</category>
+        <category>工程化</category>
+      </categories>
+      <tags>
+        <tag>教程</tag>
+        <tag>CNPM</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>本地电脑如何变成服务器？</title>
-    <url>/2019/05/22/%E6%9C%AC%E5%9C%B0%E7%94%B5%E8%84%91%E5%A6%82%E4%BD%95%E5%8F%98%E6%88%90%E6%9C%8D%E5%8A%A1%E5%99%A8/</url>
+    <url>/archives/4906.html</url>
     <content><![CDATA[<p>&emsp;&emsp;本人住在深圳的某城中村，刚来深圳用着门口贴着“网络贩子”的网，开始觉得自己拉光纤成本太高。开始用了80块钱8M的网，下行速度600KB/s左右，上行速度只有10KB/s，传个10M的文件要老半天，手机玩游戏根本不敢连WIFI，室友打一个网络电话（通常就是2小时左右）我就视频啥的都看不了，只能等他打完才能看。<span id="more"></span>一年后，受不了，让“老板”给我免费加到10M，下行速度有所提升，能达到1MB/s，上行速度也提了一点点。最近那网络老是故障，实在受不了，决定拉个宽带！开始看了下移动的套餐，话费达到69元每个月，可以免费装50M的宽带，然后去营业厅问，让我打10086，打电话过去查了一下说这边跟铁通合作了，只能拉铁通的网，打了好几次铁通的客服都打不通，然后又跟移动的交涉了几次，一个月过去了，未果，只能放弃；然后就试着帮联通的，也是陆陆续续，半个月后被告知我住的地方办不了。哎！！想着家里偏远农村一天都拉了一个月49元200M的光纤，深圳为啥办个网那么难。最后只能选择比较贵点的电信了，微信里电信的客服服务相当的好，1天就上门来装宽带。自己选着了一个1399元/年的200M套餐，然后拉了一个隔壁的“老王”一起分摊一下，一个月下来我们宿舍就60元左右，真是爽歪歪呀！！！</p>
 <p><img src="http://my-images-space.oss-cn-shenzhen.aliyuncs.com/computer2server/telecom_broadband_package.jpg" alt="电信宽带套餐"><br><br></p>
 <div algin=center>
@@ -664,8 +867,8 @@
         <category>服务器</category>
       </categories>
       <tags>
-        <tag>服务器</tag>
         <tag>教程</tag>
+        <tag>服务器</tag>
       </tags>
   </entry>
 </search>
