@@ -879,8 +879,8 @@
 </blockquote>
 <h2 id="测试类型"><a href="#测试类型" class="headerlink" title="测试类型"></a>测试类型</h2><ul>
 <li>单元测试</li>
-<li>集成测试</li>
-<li>功能测试</li>
+<li>集成测试（组件测试）</li>
+<li>功能测试（E2E，端对端测试）</li>
 </ul>
 <h2 id="测试环境"><a href="#测试环境" class="headerlink" title="测试环境"></a>测试环境</h2><ul>
 <li>浏览器</li>
@@ -1269,6 +1269,11 @@
 </blockquote>
 <ul>
 <li><strong>功能测试：</strong> control browsers和Visual regression tools</li>
+</ul>
+<h2 id="补充：根据js框架推荐测试框架"><a href="#补充：根据js框架推荐测试框架" class="headerlink" title="补充：根据js框架推荐测试框架"></a>补充：根据js框架推荐测试框架</h2><ul>
+<li>vue: jest(单元测试) + Vue Testing Library(组件测试) + cypress(E2E测试)</li>
+<li>react: jest(单元测试) + enzyme(组件测试) +  cypress(E2E测试)</li>
+<li>angular: jasmine(单元测试、组件测试) + karma(运行器和测试报告) + protractor(E2E测试)</li>
 </ul>
 ]]></content>
       <categories>
