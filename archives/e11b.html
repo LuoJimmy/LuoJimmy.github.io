@@ -21,20 +21,25 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="123$ nvm use 7.2.0exit status 1: &amp;#x27;D:\My&amp;#x27; ▒▒▒▒▒ڲ▒▒▒▒ⲿ▒▒▒Ҳ▒▒▒ǿ▒▒▒▒еĳ▒▒▒▒▒▒▒▒▒▒▒▒ļ▒▒▒ nvm安装的时候，路径不要中文和空格">
+  <meta name="description" content="环境：    sonar服务器：SonarQube Community Edition版本 7.8 (build 26217) 开发环境：mac   安装sonarlint根据changeLog安装对应版本的sonarlint 配置vscode setting根据自己的环境配置 123456789 &quot;sonarlint.connectedMode.connections.sonarqu">
 <meta property="og:type" content="article">
-<meta property="og:title" content="nvm use exit status 1">
-<meta property="og:url" content="http://example.com/archives/a434.html">
+<meta property="og:title" content="vscode的插件sonarlint的配置">
+<meta property="og:url" content="http://example.com/archives/e11b.html">
 <meta property="og:site_name" content="JimmyLuo&#39;s Blog">
-<meta property="og:description" content="123$ nvm use 7.2.0exit status 1: &amp;#x27;D:\My&amp;#x27; ▒▒▒▒▒ڲ▒▒▒▒ⲿ▒▒▒Ҳ▒▒▒ǿ▒▒▒▒еĳ▒▒▒▒▒▒▒▒▒▒▒▒ļ▒▒▒ nvm安装的时候，路径不要中文和空格">
+<meta property="og:description" content="环境：    sonar服务器：SonarQube Community Edition版本 7.8 (build 26217) 开发环境：mac   安装sonarlint根据changeLog安装对应版本的sonarlint 配置vscode setting根据自己的环境配置 123456789 &quot;sonarlint.connectedMode.connections.sonarqu">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2017-08-23T01:36:03.000Z">
-<meta property="article:modified_time" content="2021-04-15T14:39:10.438Z">
+<meta property="og:image" content="http://my-images-space.oss-cn-shenzhen.aliyuncs.com/blog/install%20sonarlint%20plugin.png">
+<meta property="og:image" content="http://my-images-space.oss-cn-shenzhen.aliyuncs.com/blog/sonarqube%20projectKey.png">
+<meta property="og:image" content="http://my-images-space.oss-cn-shenzhen.aliyuncs.com/blog/update%20sonar%20connect.png">
+<meta property="og:image" content="http://my-images-space.oss-cn-shenzhen.aliyuncs.com/blog/sonarQube%20connect%20failed.png">
+<meta property="article:published_time" content="2021-10-11T03:19:07.000Z">
+<meta property="article:modified_time" content="2021-10-11T05:24:23.278Z">
 <meta property="article:author" content="Jimmy Luo">
-<meta property="article:tag" content="nvm">
+<meta property="article:tag" content="plugin vscode sonarlint">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://my-images-space.oss-cn-shenzhen.aliyuncs.com/blog/install%20sonarlint%20plugin.png">
 
-<link rel="canonical" href="http://example.com/archives/a434.html">
+<link rel="canonical" href="http://example.com/archives/e11b.html">
 
 
 <script id="page-configurations">
@@ -47,7 +52,7 @@
   };
 </script>
 
-  <title>nvm use exit status 1 | JimmyLuo's Blog</title>
+  <title>vscode的插件sonarlint的配置 | JimmyLuo's Blog</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=268856276"></script>
     <script>
@@ -201,7 +206,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/archives/a434.html">
+    <link itemprop="mainEntityOfPage" href="http://example.com/archives/e11b.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -214,7 +219,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          nvm use exit status 1
+          vscode的插件sonarlint的配置
         </h1>
 
         <div class="post-meta">
@@ -223,27 +228,17 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
+              
 
-              <time title="创建时间：2017-08-23 09:36:03" itemprop="dateCreated datePublished" datetime="2017-08-23T09:36:03+08:00">2017-08-23</time>
+              <time title="创建时间：2021-10-11 11:19:07 / 修改时间：13:24:23" itemprop="dateCreated datePublished" datetime="2021-10-11T11:19:07+08:00">2021-10-11</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-04-15 22:39:10" itemprop="dateModified" datetime="2021-04-15T22:39:10+08:00">2021-04-15</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/node/" itemprop="url" rel="index"><span itemprop="name">node</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/node/%E7%8E%AF%E5%A2%83/" itemprop="url" rel="index"><span itemprop="name">环境</span></a>
+                  <a href="/categories/IDE-vscode/" itemprop="url" rel="index"><span itemprop="name">IDE vscode</span></a>
                 </span>
             </span>
 
@@ -263,8 +258,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/archives/a434.html#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/archives/a434.html" itemprop="commentCount"></span>
+    <a title="valine" href="/archives/e11b.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/archives/e11b.html" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -273,7 +268,7 @@
               <span class="post-meta-item-icon">
                 <i class="far fa-file-word"></i>
               </span>
-              <span>104</span>
+              <span>1.4k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -291,9 +286,42 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ nvm use 7.2.0</span><br><span class="line"><span class="built_in">exit</span> status 1: <span class="string">&#x27;D:\My&#x27;</span> ▒▒▒▒▒ڲ▒▒▒▒ⲿ▒▒▒Ҳ▒▒▒ǿ▒▒▒▒еĳ▒▒▒</span><br><span class="line">▒▒▒▒▒▒▒▒▒ļ▒▒▒</span><br></pre></td></tr></table></figure>
-<p>nvm安装的时候，路径不要中文和空格</p>
-<span id="more"></span>
+        <blockquote>
+<p>环境：  </p>
+<ul>
+<li>sonar服务器：SonarQube Community Edition版本 7.8 (build 26217)</li>
+<li>开发环境：mac</li>
+</ul>
+</blockquote>
+<h2 id="安装sonarlint"><a href="#安装sonarlint" class="headerlink" title="安装sonarlint"></a>安装sonarlint</h2><p>根据changeLog安装对应版本的sonarlint<br><img src="http://my-images-space.oss-cn-shenzhen.aliyuncs.com/blog/install%20sonarlint%20plugin.png"></p>
+<h2 id="配置vscode-setting"><a href="#配置vscode-setting" class="headerlink" title="配置vscode setting"></a>配置vscode setting</h2><p>根据自己的环境配置</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"> &quot;sonarlint.connectedMode.connections.sonarqube&quot;: [</span><br><span class="line">   &#123;</span><br><span class="line">     <span class="attr">&quot;serverUrl&quot;</span>: <span class="string">&quot;https://sonar.in.myspacex.cn&quot;</span>,</span><br><span class="line">     <span class="attr">&quot;token&quot;</span>: <span class="string">&quot;dd1xxxxxxxxxxxxxxxxxxxxxxxxx&quot;</span>,</span><br><span class="line">     <span class="attr">&quot;connectionId&quot;</span>: <span class="string">&quot;mySonar&quot;</span>,</span><br><span class="line">   &#125;</span><br><span class="line"> ],</span><br><span class="line">&quot;sonarlint.ls.javaHome&quot;: &quot;/Library/Java/JavaVirtualMachines/jdk1.8.0_181.jdk/Contents/Home&quot;,</span><br><span class="line">&quot;sonarlint.pathToNodeExecutable&quot;: &quot;/usr/local/bin/node&quot;,</span><br></pre></td></tr></table></figure>
+
+<p>解释：</p>
+<p>serverUrl：sonarqube应用地址</p>
+<p>token：在sonarqube应用的“我的账号&gt;安全”可以生成</p>
+<p>connectionId：任意填写</p>
+<p>sonarlint.ls.javaHome：java的path</p>
+<p>sonarlint.pathToNodeExecutable：node的path</p>
+<h2 id="配置project-setting"><a href="#配置project-setting" class="headerlink" title="配置project setting"></a>配置project setting</h2><p>在项目的<code>.vscode/setting.json</code>下配置</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">&quot;sonarlint.connectedMode.project&quot;</span>: &#123;</span><br><span class="line">        <span class="attr">&quot;connectionId&quot;</span>: <span class="string">&quot;mySonar&quot;</span>,</span><br><span class="line">        <span class="attr">&quot;projectKey&quot;</span>: <span class="string">&quot;rental-web-middleground&quot;</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>解释：</p>
+<p>connectionId：跟vscode的connectionId保持一致</p>
+<p>projectKey：项目标识。在sonarqube应用中能找到</p>
+<p><img src="http://my-images-space.oss-cn-shenzhen.aliyuncs.com/blog/sonarqube%20projectKey.png"></p>
+<h2 id="更新绑定配置"><a href="#更新绑定配置" class="headerlink" title="更新绑定配置"></a>更新绑定配置</h2><p><img src="http://my-images-space.oss-cn-shenzhen.aliyuncs.com/blog/update%20sonar%20connect.png"></p>
+<p>配置了connect mode后，update一下绑定配置拉取服务器的规则，就生效了。在vscode每打开代码文件后，就会扫描文件了，然后在控制台的PROBLEMS页签下显示出现的问题。</p>
+<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><p>Q：如果使用中有时不起作用了，比如遇到下面的错误</p>
+<p><img src="http://my-images-space.oss-cn-shenzhen.aliyuncs.com/blog/sonarQube%20connect%20failed.png"></p>
+<p>A: 关掉vscode重新启动一下</p>
+<p>Q: 没有cli工具吗，可以在提交时检查</p>
+<p>A: 以前有，现在官方废弃掉了</p>
+<p>Q: 每次打开文件才扫描，能否全局项目扫描检查<br>A: sonarlint暂时做不用，只能通过sonarQube做了</p>
+<h2 id="资料扩展"><a href="#资料扩展" class="headerlink" title="资料扩展"></a>资料扩展</h2><ul>
+<li>圈复杂度（Cyclomatic Complexity）：<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/340383750">https://zhuanlan.zhihu.com/p/340383750</a></li>
+<li>认知复杂度（Cognitive Complexity）：<a target="_blank" rel="noopener" href="https://www.sonarsource.com/docs/CognitiveComplexity.pdf">https://www.sonarsource.com/docs/CognitiveComplexity.pdf</a></li>
+</ul>
 
     </div>
 
@@ -331,7 +359,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://example.com/archives/a434.html" title="nvm use exit status 1">http://example.com/archives/a434.html</a>
+    <a href="http://example.com/archives/e11b.html" title="vscode的插件sonarlint的配置">http://example.com/archives/e11b.html</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -362,7 +390,7 @@
       <footer class="post-footer">
           
           <div class="post-tags">
-              <a href="/tags/nvm/" rel="tag"><i class="fa fa-tag"></i> nvm</a>
+              <a href="/tags/plugin-vscode-sonarlint/" rel="tag"><i class="fa fa-tag"></i> plugin vscode sonarlint</a>
           </div>
 
         
@@ -371,13 +399,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/archives/a4e.html" rel="prev" title="搭建CNPM私有库">
-      <i class="fa fa-chevron-left"></i> 搭建CNPM私有库
+    <a href="/archives/896f.html" rel="prev" title="2021前端测试概述">
+      <i class="fa fa-chevron-left"></i> 2021前端测试概述
     </a></div>
-      <div class="post-nav-item">
-    <a href="/archives/b41b.html" rel="next" title="window gitbash如何修改可恶的蓝色字体">
-      window gitbash如何修改可恶的蓝色字体 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -437,6 +462,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85sonarlint"><span class="nav-text">安装sonarlint</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%85%8D%E7%BD%AEvscode-setting"><span class="nav-text">配置vscode setting</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%85%8D%E7%BD%AEproject-setting"><span class="nav-text">配置project setting</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9B%B4%E6%96%B0%E7%BB%91%E5%AE%9A%E9%85%8D%E7%BD%AE"><span class="nav-text">更新绑定配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B6%E4%BB%96"><span class="nav-text">其他</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B5%84%E6%96%99%E6%89%A9%E5%B1%95"><span class="nav-text">资料扩展</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 

@@ -195,6 +195,123 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/archives/e11b.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Jimmy Luo">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="JimmyLuo's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/archives/e11b.html" class="post-title-link" itemprop="url">vscode的插件sonarlint的配置</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-10-11 11:19:07 / 修改时间：13:24:23" itemprop="dateCreated datePublished" datetime="2021-10-11T11:19:07+08:00">2021-10-11</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/IDE-vscode/" itemprop="url" rel="index"><span itemprop="name">IDE vscode</span></a>
+                </span>
+            </span>
+
+          
+  
+  
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+              <span>1.4k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <blockquote>
+<p>环境：  </p>
+<ul>
+<li>sonar服务器：SonarQube Community Edition版本 7.8 (build 26217)</li>
+<li>开发环境：mac</li>
+</ul>
+</blockquote>
+<h2 id="安装sonarlint"><a href="#安装sonarlint" class="headerlink" title="安装sonarlint"></a>安装sonarlint</h2><p>根据changeLog安装对应版本的sonarlint<br><img src="http://my-images-space.oss-cn-shenzhen.aliyuncs.com/blog/install%20sonarlint%20plugin.png"></p>
+<h2 id="配置vscode-setting"><a href="#配置vscode-setting" class="headerlink" title="配置vscode setting"></a>配置vscode setting</h2><p>根据自己的环境配置</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"> &quot;sonarlint.connectedMode.connections.sonarqube&quot;: [</span><br><span class="line">   &#123;</span><br><span class="line">     <span class="attr">&quot;serverUrl&quot;</span>: <span class="string">&quot;https://sonar.in.myspacex.cn&quot;</span>,</span><br><span class="line">     <span class="attr">&quot;token&quot;</span>: <span class="string">&quot;dd1xxxxxxxxxxxxxxxxxxxxxxxxx&quot;</span>,</span><br><span class="line">     <span class="attr">&quot;connectionId&quot;</span>: <span class="string">&quot;mySonar&quot;</span>,</span><br><span class="line">   &#125;</span><br><span class="line"> ],</span><br><span class="line">&quot;sonarlint.ls.javaHome&quot;: &quot;/Library/Java/JavaVirtualMachines/jdk1.8.0_181.jdk/Contents/Home&quot;,</span><br><span class="line">&quot;sonarlint.pathToNodeExecutable&quot;: &quot;/usr/local/bin/node&quot;,</span><br></pre></td></tr></table></figure>
+
+<p>解释：</p>
+<p>serverUrl：sonarqube应用地址</p>
+<p>token：在sonarqube应用的“我的账号&gt;安全”可以生成</p>
+<p>connectionId：任意填写</p>
+<p>sonarlint.ls.javaHome：java的path</p>
+<p>sonarlint.pathToNodeExecutable：node的path</p>
+<h2 id="配置project-setting"><a href="#配置project-setting" class="headerlink" title="配置project setting"></a>配置project setting</h2><p>在项目的<code>.vscode/setting.json</code>下配置</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">&quot;sonarlint.connectedMode.project&quot;</span>: &#123;</span><br><span class="line">        <span class="attr">&quot;connectionId&quot;</span>: <span class="string">&quot;mySonar&quot;</span>,</span><br><span class="line">        <span class="attr">&quot;projectKey&quot;</span>: <span class="string">&quot;rental-web-middleground&quot;</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>解释：</p>
+<p>connectionId：跟vscode的connectionId保持一致</p>
+<p>projectKey：项目标识。在sonarqube应用中能找到</p>
+<p><img src="http://my-images-space.oss-cn-shenzhen.aliyuncs.com/blog/sonarqube%20projectKey.png"></p>
+<h2 id="更新绑定配置"><a href="#更新绑定配置" class="headerlink" title="更新绑定配置"></a>更新绑定配置</h2><p><img src="http://my-images-space.oss-cn-shenzhen.aliyuncs.com/blog/update%20sonar%20connect.png"></p>
+<p>配置了connect mode后，update一下绑定配置拉取服务器的规则，就生效了。在vscode每打开代码文件后，就会扫描文件了，然后在控制台的PROBLEMS页签下显示出现的问题。</p>
+<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><p>Q：如果使用中有时不起作用了，比如遇到下面的错误</p>
+<p><img src="http://my-images-space.oss-cn-shenzhen.aliyuncs.com/blog/sonarQube%20connect%20failed.png"></p>
+<p>A: 关掉vscode重新启动一下</p>
+<p>Q: 没有cli工具吗，可以在提交时检查</p>
+<p>A: 以前有，现在官方废弃掉了</p>
+<p>Q: 每次打开文件才扫描，能否全局项目扫描检查<br>A: sonarlint暂时做不用，只能通过sonarQube做了</p>
+<h2 id="资料扩展"><a href="#资料扩展" class="headerlink" title="资料扩展"></a>资料扩展</h2><ul>
+<li>圈复杂度（Cyclomatic Complexity）：<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/340383750">https://zhuanlan.zhihu.com/p/340383750</a></li>
+<li>认知复杂度（Cognitive Complexity）：<a target="_blank" rel="noopener" href="https://www.sonarsource.com/docs/CognitiveComplexity.pdf">https://www.sonarsource.com/docs/CognitiveComplexity.pdf</a></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/archives/896f.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -612,105 +729,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/archives/4906.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="Jimmy Luo">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="JimmyLuo's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/archives/4906.html" class="post-title-link" itemprop="url">本地电脑如何变成服务器？</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-05-22 03:03:25" itemprop="dateCreated datePublished" datetime="2019-05-22T03:03:25+08:00">2019-05-22</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-04-15 21:14:20" itemprop="dateModified" datetime="2021-04-15T21:14:20+08:00">2021-04-15</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%95%99%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">教程</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%95%99%E7%A8%8B/%E6%9C%8D%E5%8A%A1%E5%99%A8/" itemprop="url" rel="index"><span itemprop="name">服务器</span></a>
-                </span>
-            </span>
-
-          
-  
-  
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-              <span>1.2k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>&emsp;&emsp;本人住在深圳的某城中村，刚来深圳用着门口贴着“网络贩子”的网，开始觉得自己拉光纤成本太高。开始用了80块钱8M的网，下行速度600KB/s左右，上行速度只有10KB/s，传个10M的文件要老半天，手机玩游戏根本不敢连WIFI，室友打一个网络电话（通常就是2小时左右）我就视频啥的都看不了，只能等他打完才能看。
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/archives/4906.html#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -782,20 +800,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">11</span>
+          <span class="site-state-item-count">12</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">17</span>
+        <span class="site-state-item-count">18</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">26</span>
+        <span class="site-state-item-count">27</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -842,12 +860,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">20k</span>
+    <span title="站点总字数">22k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">19 分钟</span>
+    <span title="站点阅读时长">20 分钟</span>
 </div>
 
         
