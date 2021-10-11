@@ -220,7 +220,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2021-10-11 11:19:07 / 修改时间：13:31:17" itemprop="dateCreated datePublished" datetime="2021-10-11T11:19:07+08:00">2021-10-11</time>
+              <time title="创建时间：2021-10-11 11:19:07 / 修改时间：14:35:16" itemprop="dateCreated datePublished" datetime="2021-10-11T11:19:07+08:00">2021-10-11</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -264,36 +264,15 @@
 <li>开发环境：mac</li>
 </ul>
 </blockquote>
-<h2 id="安装sonarlint"><a href="#安装sonarlint" class="headerlink" title="安装sonarlint"></a>安装sonarlint</h2><p>根据changeLog安装对应版本的sonarlint<br><img src="http://my-images-space.oss-cn-shenzhen.aliyuncs.com/blog/install%20sonarlint%20plugin.png"></p>
-<h2 id="配置vscode-setting"><a href="#配置vscode-setting" class="headerlink" title="配置vscode setting"></a>配置vscode setting</h2><p>根据自己的环境配置</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"> &quot;sonarlint.connectedMode.connections.sonarqube&quot;: [</span><br><span class="line">   &#123;</span><br><span class="line">     <span class="attr">&quot;serverUrl&quot;</span>: <span class="string">&quot;https://sonar.in.myspacex.cn&quot;</span>,</span><br><span class="line">     <span class="attr">&quot;token&quot;</span>: <span class="string">&quot;dd1xxxxxxxxxxxxxxxxxxxxxxxxx&quot;</span>,</span><br><span class="line">     <span class="attr">&quot;connectionId&quot;</span>: <span class="string">&quot;mySonar&quot;</span>,</span><br><span class="line">   &#125;</span><br><span class="line"> ],</span><br><span class="line">&quot;sonarlint.ls.javaHome&quot;: &quot;/Library/Java/JavaVirtualMachines/jdk1.8.0_181.jdk/Contents/Home&quot;,</span><br><span class="line">&quot;sonarlint.pathToNodeExecutable&quot;: &quot;/usr/local/bin/node&quot;,</span><br></pre></td></tr></table></figure>
-
-<p>解释：</p>
-<p>serverUrl：sonarqube应用地址</p>
-<p>token：在sonarqube应用的“我的账号&gt;安全”可以生成</p>
-<p>connectionId：任意填写</p>
-<p>sonarlint.ls.javaHome：java的path</p>
-<p>sonarlint.pathToNodeExecutable：node的path</p>
-<h2 id="配置project-setting"><a href="#配置project-setting" class="headerlink" title="配置project setting"></a>配置project setting</h2><p>在项目的<code>.vscode/setting.json</code>下配置</p>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">&quot;sonarlint.connectedMode.project&quot;</span>: &#123;</span><br><span class="line">        <span class="attr">&quot;connectionId&quot;</span>: <span class="string">&quot;mySonar&quot;</span>,</span><br><span class="line">        <span class="attr">&quot;projectKey&quot;</span>: <span class="string">&quot;rental-web-middleground&quot;</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>解释：</p>
-<p>connectionId：跟vscode的connectionId保持一致</p>
-<p>projectKey：项目标识。在sonarqube应用中能找到</p>
-<p><img src="http://my-images-space.oss-cn-shenzhen.aliyuncs.com/blog/sonarqube%20projectKey.png"></p>
-<h2 id="更新绑定配置"><a href="#更新绑定配置" class="headerlink" title="更新绑定配置"></a>更新绑定配置</h2><p><img src="http://my-images-space.oss-cn-shenzhen.aliyuncs.com/blog/update%20sonar%20connect.png"></p>
-<p>配置了connect mode后，update一下绑定配置拉取服务器的规则，就生效了。在vscode每打开代码文件后，就会扫描文件了，然后在控制台的PROBLEMS页签下显示出现的问题。</p>
-<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><p>Q：如果使用中有时不起作用了，比如遇到下面的错误</p>
-<p><img src="http://my-images-space.oss-cn-shenzhen.aliyuncs.com/blog/sonarQube%20connect%20failed.png"></p>
-<p>A: 关掉vscode重新启动一下</p>
-<p>Q: 没有cli工具吗，可以在提交时检查</p>
-<p>A: 以前有，现在官方废弃掉了</p>
-<p>Q: 每次打开文件才扫描，能否全局项目扫描检查<br>A: sonarlint暂时做不用，只能通过sonarQube做了</p>
-<h2 id="资料扩展"><a href="#资料扩展" class="headerlink" title="资料扩展"></a>资料扩展</h2><ul>
-<li>圈复杂度（Cyclomatic Complexity）：<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/340383750">https://zhuanlan.zhihu.com/p/340383750</a></li>
-<li>认知复杂度（Cognitive Complexity）：<a target="_blank" rel="noopener" href="https://www.sonarsource.com/docs/CognitiveComplexity.pdf">https://www.sonarsource.com/docs/CognitiveComplexity.pdf</a></li>
-</ul>
-
+<h2 id="安装sonarlint"><a href="#安装sonarlint" class="headerlink" title="安装sonarlint"></a>安装sonarlint</h2><p>根据changeLog安装对应版本的sonarlint</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/archives/e11b.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 

@@ -1302,7 +1302,9 @@
 <li>开发环境：mac</li>
 </ul>
 </blockquote>
-<h2 id="安装sonarlint"><a href="#安装sonarlint" class="headerlink" title="安装sonarlint"></a>安装sonarlint</h2><p>根据changeLog安装对应版本的sonarlint<br><img src="http://my-images-space.oss-cn-shenzhen.aliyuncs.com/blog/install%20sonarlint%20plugin.png"></p>
+<h2 id="安装sonarlint"><a href="#安装sonarlint" class="headerlink" title="安装sonarlint"></a>安装sonarlint</h2><p>根据changeLog安装对应版本的sonarlint</p>
+<span id="more"></span>
+<p><img src="http://my-images-space.oss-cn-shenzhen.aliyuncs.com/blog/install%20sonarlint%20plugin.png"></p>
 <h2 id="配置vscode-setting"><a href="#配置vscode-setting" class="headerlink" title="配置vscode setting"></a>配置vscode setting</h2><p>根据自己的环境配置</p>
 <figure class="highlight"><table><tr><td class="code"><pre><span class="line"> &quot;sonarlint.connectedMode.connections.sonarqube&quot;: [</span><br><span class="line">   &#123;</span><br><span class="line">     <span class="attr">&quot;serverUrl&quot;</span>: <span class="string">&quot;https://sonar.in.myspacex.cn&quot;</span>,</span><br><span class="line">     <span class="attr">&quot;token&quot;</span>: <span class="string">&quot;dd1xxxxxxxxxxxxxxxxxxxxxxxxx&quot;</span>,</span><br><span class="line">     <span class="attr">&quot;connectionId&quot;</span>: <span class="string">&quot;mySonar&quot;</span>,</span><br><span class="line">   &#125;</span><br><span class="line"> ],</span><br><span class="line">&quot;sonarlint.ls.javaHome&quot;: &quot;/Library/Java/JavaVirtualMachines/jdk1.8.0_181.jdk/Contents/Home&quot;,</span><br><span class="line">&quot;sonarlint.pathToNodeExecutable&quot;: &quot;/usr/local/bin/node&quot;,</span><br></pre></td></tr></table></figure>
 
